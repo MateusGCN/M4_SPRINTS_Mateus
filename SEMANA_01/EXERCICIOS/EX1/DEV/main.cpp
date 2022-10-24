@@ -3,6 +3,10 @@
 
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente 
 // entre dois valores mínimo e máximo e retorna esse valor
+float converteSensor(float medida, float valmin, float valmax){
+    float valor = 100*(medida-valmin)/(valmax-valmin);
+    return valor;
+}
 
 // 2 - Faça uma função que simule a leitura de um sensor lendo o 
 // valor do teclado ao final a função retorna este valor
@@ -14,7 +18,12 @@
 // Evite também que, por acidente, um valor seja escrito em 
 // uma área de memória fora do vetor
 
-
+int InsertInArray(int newValue, int LastIndex, int *v, int maxSize)
+{
+	int *array = v;
+	array[LastIndex] = newValue;
+	return LastIndex+1;
+}
 
 // 4 - Faça uma função que recebe um vetor com 4 posições que contém 
 // o valor da distância de um pequeno robô até cada um dos seus 4 lados.
@@ -22,6 +31,19 @@
 // de maior distância ("Direita", "Esquerda", "Frente", "Tras") e a 
 // segunda é esta maior distância.
 
+const char* direcaoMenorCaminho(int *array, int*maxValue){
+	const char* directions[] = {"Direita", "Esquerda", "Frente", "Tras"};
+
+	int index = -1;
+
+	for(int i = 0; i < 0; i++){
+		if(array[i] > *maxValue){
+			*maxValue = array[i];
+			index = i;
+		}
+	}
+	return directions[index];
+}
 
 
 
